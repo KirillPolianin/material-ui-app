@@ -1,11 +1,11 @@
 import React from 'react';
 
-import ValuationForm from './ValuationForm';
+import FormPage from './FormPage';
 
 const App = () => {
   return (
     <div>
-      <ValuationForm />
+      <FormPage />
     </div>
   );
 };
