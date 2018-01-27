@@ -2,8 +2,8 @@ import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 
 import ValuationForm from './ValuationForm';
-import { giveEvaluation } from '../actions';
-import validate from '../utils/valuationFormValidation';
+import { giveEvaluation } from '../../actions';
+import validate from '../../utils/valuationFormValidation';
 
 function mapStateToProps({ form, evaluated }) {
   return { values: form.ValuationForm.values, evaluated };

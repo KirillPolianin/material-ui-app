@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import { giveEvaluation } from '../actions';
-import FormField from './FormField';
-import { valuationFormFields } from './formFields';
+import FormField from '../../utils/FormField';
+import { valuationFieldsContent } from './ValuationFieldsContent';
 
 export default class ValuationForm extends Component {
-  renderButtons() {
+  renderButtons = () => {
     const { pristine, submitting, reset, evaluated } = this.props;
     if (!evaluated) {
       return (
@@ -28,24 +25,24 @@ export default class ValuationForm extends Component {
         </div>
       );
     }
-  }
+  };
 
-  onSubmit() {
-    this.props.giveEvaluation();
-  }
-  renderFields() {
-    return valuationFormFields.map(field => (
+  onSubmit = () => this.props.giveEvaluation();
+
+  renderFields = () =>
+    valuationFieldsContent.map(field => (
       <FormField field={field} key={field.name} values={this.props.values} />
     ));
-  }
 
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        {this.renderFields()}
-        {this.renderButtons()}
-      </form>
+      <div>
+        <form onSubmit={handleSubmit(this.onSubmit)}>
+          {this.renderFields()}
+          {this.renderButtons()}
+        </form>
+      </div>
     );
   }
 }

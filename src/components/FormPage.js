@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import ValuationFormContainer from './ValuationFormContainer';
-import ContactFormContainer from './ContactFormContainer';
+import ValuationForm from './Valuation/ValuationFormContainer';
+import ContactForm from './Contact/ContactFormContainer';
+import Map from './Map';
 
 class FormPage extends Component {
   renderContactForm() {
     if (this.props.evaluated) {
-      return <ContactFormContainer />;
+      return <ContactForm />;
     }
   }
 
@@ -19,16 +20,17 @@ class FormPage extends Component {
           Toimimme toistaiseksi Helsingissä, Espoossa, Vantaalla ja Kauniaisissa
           ja keskitymme alle 500 000€ arvoisiin kerrostalohuoneistoihin.
         </div>
-        <div>
+        <p>
           Hinta-arvio perustuu keinoälyyn ja useaan datalähteeseen, joiden
           perusteella annamme mahdollisimman tarkan arvion. Mikäli haluat
           lopullisen arvion asuntosi hinnasta niin suosittelemme varaamaan myös
           maksuttoman tarkastuskäynnin, jossa tarkastajamme käy sovelluksemme
           avulla läpi asunnon tarkemman kunnon huonekohtaisesti. Tarkastus ei
           sido sinua vielä mihinkään
-        </div>
-        <ValuationFormContainer />
+        </p>
+        <ValuationForm />
         {this.renderContactForm()}
+        <Map />
       </div>
     );
   }
